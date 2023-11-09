@@ -2597,7 +2597,7 @@ PrefabInstance:
     - target: {fileID: 3960290898766086562, guid: 125a8be53a3494878a654e1260612c87, type: 3}
       propertyPath: flareBullet
       value: 
-      objectReference: {fileID: 8515963501629593483, guid: 6189c2c58e309ed41b3301975fd0d406, type: 3}
+      objectReference: {fileID: 4704416609277938138, guid: a06e7c46fde4d5746b35014bea0f6362, type: 3}
     - target: {fileID: 3960290898766086562, guid: 125a8be53a3494878a654e1260612c87, type: 3}
       propertyPath: currentRound
       value: 1
@@ -2623,12 +2623,16 @@ PrefabInstance:
       value: -176
       objectReference: {fileID: 0}
     - target: {fileID: 3960290898779745698, guid: 125a8be53a3494878a654e1260612c87, type: 3}
-      propertyPath: m_audioClip
-      value: 
+      propertyPath: Loop
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3960290898779745698, guid: 125a8be53a3494878a654e1260612c87, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0f01458ab91c1ac4883d0e6e549bff26, type: 3}
+    - target: {fileID: 3960290898779745698, guid: 125a8be53a3494878a654e1260612c87, type: 3}
       propertyPath: m_PlayOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4338113278104460631, guid: 125a8be53a3494878a654e1260612c87, type: 3}
       propertyPath: m_Name
