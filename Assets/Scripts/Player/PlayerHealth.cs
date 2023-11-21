@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (healthText != null)
         {
-            healthText.text = "HP: " + health.ToString();
+            healthText.text = health.ToString();
         }
     }
 }

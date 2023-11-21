@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerProjectileController : MonoBehaviour
 {
-    public int damage = 20;
     public float lifespan = 5.0f;
 
     void Start()
@@ -14,6 +13,7 @@ public class PlayerProjectileController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            int damage = Random.Range(10, 21);
             other.GetComponent<PlayerHealth>().TakeDamage(damage);
             Destroy(gameObject);
         }

@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
-    public int damage = 20;
-
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("EnemyTag"))
         {
+            int damage = Random.Range(15, 26);
             other.GetComponent<EnemyController>().TakeDamage(damage);
             Destroy(gameObject);
         }

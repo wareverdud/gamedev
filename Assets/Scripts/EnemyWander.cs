@@ -32,12 +32,20 @@ public class EnemyWander : MonoBehaviour
     {
         while (true)
         {
-            Vector3 directionToPlayer = (player.position - transform.position).normalized;
+            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            if (distanceToPlayer > 3.0f)
+            {
+                Vector3 playerXZPosition = new Vector3(player.position.x, 0, player.position.z);
+                Vector3 enemyXZPosition = new Vector3(transform.position.x, 0, transform.position.z);
 
-            transform.position += transform.forward * chaseSpeed * Time.deltaTime;
+                Vector3 directionToPlayer = (playerXZPosition - enemyXZPosition).normalized;
+
+                Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+                transform.position += transform.forward * chaseSpeed * Time.deltaTime;
+            }
 
             yield return null;
         }
@@ -49,7 +57,7 @@ public class EnemyWander : MonoBehaviour
 
         Rigidbody fireballRb = fireball.GetComponent<Rigidbody>();
 
-        fireballRb.velocity = transform.forward * 25;
+        fireballRb.velocity = transform.forward * 50;
 
         canShoot = false;
     }
