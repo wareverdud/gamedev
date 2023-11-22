@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public int maxHealth = 100;
     public int health = 100;
     public TextMeshProUGUI healthText;
 
@@ -13,6 +14,17 @@ public class PlayerHealth : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    public void Heal(int healAmount)
+    {
+        health += healAmount;
+        health = Mathf.Min(health, maxHealth);
+
+        if (healthText != null)
+        {
+            healthText.text = health.ToString();
         }
     }
 
