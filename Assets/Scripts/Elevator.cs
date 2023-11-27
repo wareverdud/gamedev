@@ -1,10 +1,12 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class Elevator : MonoBehaviour
 {
     [SerializeField] private float floorHeight = 10.5f;
     [SerializeField] private float movementSpeed = 1f;
+    [SerializeField] private TextMeshProUGUI messageText;
     private bool isMoving = false;
 
     public void MoveToFloor(int floorNumber)
@@ -28,5 +30,17 @@ public class Elevator : MonoBehaviour
         }
 
         isMoving = false;
+
+        if (Mathf.Approximately(targetPosition.y, 1 * floorHeight))
+        {
+            StartCoroutine(DisplayMessage("To activate fan, you should open two switches", 5f));
+        }
+    }
+
+    IEnumerator DisplayMessage(string message, float duration)
+    {
+        messageText.text = message;
+        yield return new WaitForSeconds(duration);
+        messageText.text = "";
     }
 }

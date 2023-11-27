@@ -19,7 +19,7 @@ public class ElevatorKeypad : MonoBehaviour
         {
             keypadActive = true;
             // Display a message to inform the player that they can interact with the keypad
-            interactionText.text = "Press '1', '2', or '3' to select a floor.";
+            interactionText.text = "Press '1' or '2' to select a floor.";
             interactionText.gameObject.SetActive(true);
         }
     }
@@ -59,11 +59,11 @@ public class ElevatorKeypad : MonoBehaviour
                 // Move the elevator to the second floor
                 elevator.MoveToFloor(2);
             }
-            else if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                // Move the elevator to the third floor
-                elevator.MoveToFloor(3);
-            }
+            // else if (Input.GetKeyDown(KeyCode.Alpha3))
+            // {
+            //     // Move the elevator to the third floor
+            //     elevator.MoveToFloor(3);
+            // }
             // Add more conditions for additional floors as needed
         }
     }

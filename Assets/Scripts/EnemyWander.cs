@@ -7,6 +7,7 @@ public class EnemyWander : MonoBehaviour
     public float rotationSpeed = 2.0f;
     public float shootingCooldown = 2.0f;
     public float chaseRadius = 25.0f;
+    public float obstacleDetectionDistance = 2.0f;
 
     [SerializeField] GameObject fireballPrefab;
     private GameObject fireball;
@@ -34,9 +35,14 @@ public class EnemyWander : MonoBehaviour
     {
         while (true)
         {
-            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+            float distanceToPlayer = Vector3.Distance(new Vector3(transform.position.x, 0, transform.position.z), new Vector3(player.position.x, 0, player.position.z));
 
-            if (distanceToPlayer > 3.0f && distanceToPlayer < chaseRadius)
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.forward, out hit, obstacleDetectionDistance))
+            {
+                transform.Rotate(Vector3.up, 180.0f);
+            }
+            else if (distanceToPlayer > 3.0f && distanceToPlayer < chaseRadius)
             {
                 Vector3 playerXZPosition = new Vector3(player.position.x, 0, player.position.z);
                 Vector3 enemyXZPosition = new Vector3(transform.position.x, 0, transform.position.z);

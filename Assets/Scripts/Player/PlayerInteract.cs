@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
+    private float forceMagnitude = 5f;
     private Camera cam;
     [SerializeField]
     private float distance = 3f;
@@ -38,6 +39,21 @@ public class PlayerInteract : MonoBehaviour
                     interactable.BaseInteract();
                 }
             }
+        }
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        Rigidbody hitRigidbody = hit.collider.attachedRigidbody;
+
+        // Check if the collided object has a Rigidbody
+        if (hitRigidbody != null && !hitRigidbody.isKinematic)
+        {
+            // Access the normal vector of the collision
+            Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+
+            // Apply force to the Rigidbody based on the normal vector
+            hitRigidbody.velocity = pushDir * forceMagnitude;
         }
     }
 }
