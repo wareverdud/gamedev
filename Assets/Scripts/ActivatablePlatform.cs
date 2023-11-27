@@ -39,7 +39,6 @@ public class ActivatablePlatform : MonoBehaviour
         if (!isActivated)
         {
             // Implement the logic to activate the platform
-            Debug.Log("Platform Activated");
             isActivated = true;
         }
     }
@@ -49,7 +48,6 @@ public class ActivatablePlatform : MonoBehaviour
         if (isActivated)
         {
             // Implement the logic to deactivate the platform
-            Debug.Log("Platform Deactivated");
             isActivated = false;
         }
     }
