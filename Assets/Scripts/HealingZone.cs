@@ -30,7 +30,7 @@ public class HealingZone : MonoBehaviour
     private void HealPlayer()
     {
         PlayerHealth playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-        if (playerHealth != null)
+        if (playerHealth != null && playerHealth.health != 100)
         {
             playerHealth.Heal(20);
             Destroy(gameObject);

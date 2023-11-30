@@ -8,7 +8,9 @@ public class Fan : MonoBehaviour
     private float rotationSpeed;
     public Vector3 cenLocal;
 
-    public CubeMaterialChange check;
+    public CubeMaterialChange check1;
+    public CubeMaterialChange check2;
+    public CubeMaterialChange check3;
     public ActivatablePlatform platform1;
     public ActivatablePlatform platform2;
 
@@ -24,7 +26,8 @@ public class Fan : MonoBehaviour
 
     void Update()
     {
-        if (check.IsActivated() && platform1.IsActivated() && platform2.IsActivated())
+        if (check1.IsActivated() && check2.IsActivated() && check3.IsActivated()
+            && platform1.IsActivated() && platform2.IsActivated())
         {
             rotationSpeed = speed;
         }

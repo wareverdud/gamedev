@@ -33,7 +33,7 @@ public class Elevator : MonoBehaviour
 
         if (Mathf.Approximately(targetPosition.y, 1 * floorHeight))
         {
-            StartCoroutine(DisplayMessage("To activate fan, you should open two switches", 5f));
+            StartCoroutine(DisplayMessage("To activate fan, you should open two switches with cubes and win in shooting gallery", 5f));
         }
     }
 
